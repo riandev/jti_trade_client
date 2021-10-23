@@ -36,7 +36,7 @@ const LeadGenerate = () => {
         setInitialLeads(
           data
             .map((x) => {
-              return [...x.swaping, ...x.sachet_sales, ...x.vao_sales];
+              return [...x.initLeads];
             })
             .flat()
             .map((a) => {
