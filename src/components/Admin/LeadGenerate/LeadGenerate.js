@@ -30,10 +30,7 @@ const LeadGenerate = () => {
   };
 
   const generateInitial = () => {
-    fetch(
-      "https://frozen-scrubland-25317.herokuapp.com/initialLead?initDate=" +
-        initialDate
-    )
+    fetch("http://192.168.10.11:5056/initialLead?initDate=" + initialDate)
       .then((res) => res.json())
       .then((data) => {
         setInitialLeads(
@@ -57,7 +54,7 @@ const LeadGenerate = () => {
   ];
 
   const updateInitialLeads = () => {
-    fetch("https://frozen-scrubland-25317.herokuapp.com/updateInitialLead", {
+    fetch("http://192.168.10.11:5056/updateInitialLead", {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(initialLeads),
@@ -67,10 +64,7 @@ const LeadGenerate = () => {
   };
 
   const regenerateLeads = () => {
-    fetch(
-      "https://frozen-scrubland-25317.herokuapp.com/regenerate?regenDate=" +
-        regenDate
-    )
+    fetch("http://192.168.10.11:5056/regenerate?regenDate=" + regenDate)
       .then((res) => res.json())
       .then((data) => {
         setRegenerate(
@@ -87,7 +81,7 @@ const LeadGenerate = () => {
   };
 
   const regenerateUpdate = () => {
-    fetch("https://frozen-scrubland-25317.herokuapp.com/regenerateUpdate", {
+    fetch("http://192.168.10.11:5056/regenerateUpdate", {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(regenerate),

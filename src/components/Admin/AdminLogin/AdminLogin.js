@@ -20,7 +20,7 @@ const AdminLogin = () => {
   console.log(email);
 
   useEffect(() => {
-    fetch("https://frozen-scrubland-25317.herokuapp.com/admin?email=" + email)
+    fetch("http://192.168.10.11:5056/admin?email=" + email)
       .then((res) => res.json())
       .then((data) => setMatchedAdmin(data))
       .catch((err) => console.log(err));

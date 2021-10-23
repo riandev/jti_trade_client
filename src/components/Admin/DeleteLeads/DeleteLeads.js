@@ -5,25 +5,22 @@ const DeleteLeads = () => {
   const [dates, setDates] = useState([]);
   const [ddStatus, setDDStatus] = useState(false);
   useEffect(() => {
-    fetch("https://frozen-scrubland-25317.herokuapp.com/reportDates")
+    fetch("http://192.168.10.11:5056/reportDates")
       .then((res) => res.json())
       .then((data) => setDates(data));
   }, []);
   function handleDateDelete(ddate) {
     console.log(ddate);
-    fetch(
-      "https://frozen-scrubland-25317.herokuapp.com/deleteByDate?date=" + ddate,
-      {
-        method: "DELETE",
-        headers: { "Content-type": "application/json" },
-      }
-    )
+    fetch("http://192.168.10.11:5056/deleteByDate?date=" + ddate, {
+      method: "DELETE",
+      headers: { "Content-type": "application/json" },
+    })
       .then((res) => res.json())
       .then((data) => setDDStatus(data));
     window.location.reload(true);
   }
   const handleDelete = () => {
-    fetch("https://frozen-scrubland-25317.herokuapp.com/deleteAll", {
+    fetch("http://192.168.10.11:5056/deleteAll", {
       method: "DELETE",
       headers: { "Content-type": "application/json" },
     })

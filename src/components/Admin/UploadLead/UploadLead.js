@@ -16,7 +16,7 @@ const UploadLead = () => {
   };
 
   const handleUploadLead = () => {
-    fetch("https://frozen-scrubland-25317.herokuapp.com/uploadLead", {
+    fetch("http://192.168.10.11:5056/uploadLead", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(lead),

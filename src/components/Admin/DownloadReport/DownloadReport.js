@@ -22,24 +22,16 @@ const DownloadReport = () => {
     );
   };
   const handleReport = () => {
-    fetch(
-      `https://frozen-scrubland-25317.herokuapp.com/getBRReport/${reportDate}`
-    )
+    fetch(`http://192.168.10.11:5056/getBRReport/${reportDate}`)
       .then((res) => res.json())
       .then((data) => setBRReport(data));
-    fetch(
-      `https://frozen-scrubland-25317.herokuapp.com/getTerritoryReport/${reportDate}`
-    )
+    fetch(`http://192.168.10.11:5056/getTerritoryReport/${reportDate}`)
       .then((res) => res.json())
       .then((data) => setTerritoyReport(data));
-    fetch(
-      `https://frozen-scrubland-25317.herokuapp.com/getAreaReport/${reportDate}`
-    )
+    fetch(`http://192.168.10.11:5056/getAreaReport/${reportDate}`)
       .then((res) => res.json())
       .then((data) => setAreaReport(data));
-    fetch(
-      `https://frozen-scrubland-25317.herokuapp.com/getRegionReport/${reportDate}`
-    )
+    fetch(`http://192.168.10.11:5056/getRegionReport/${reportDate}`)
       .then((res) => res.json())
       .then((data) => setRegionReport(data));
   };

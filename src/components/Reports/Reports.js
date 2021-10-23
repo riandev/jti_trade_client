@@ -7,23 +7,21 @@ const Reports = () => {
   const [dates, setDates] = useState([]);
   const [downloaded, setDownloaded] = useState([]);
   useEffect(() => {
-    fetch("https://frozen-scrubland-25317.herokuapp.com/reports")
+    fetch("http://192.168.10.11:5056/reports")
       .then((res) => res.json())
       .then((data) => {
         setReport(data);
       });
   }, []);
   useEffect(() => {
-    fetch("https://frozen-scrubland-25317.herokuapp.com/reportDates")
+    fetch("http://192.168.10.11:5056/reportDates")
       .then((res) => res.json())
       .then((data) => setDates(data));
   }, []);
 
   function handlePrepare(pdate) {
     console.log(pdate);
-    fetch(
-      "https://frozen-scrubland-25317.herokuapp.com/prepareByDate?date=" + pdate
-    )
+    fetch("http://192.168.10.11:5056/prepareByDate?date=" + pdate)
       .then((res) => res.json())
       .then((data) => setDownloaded(data));
   }
