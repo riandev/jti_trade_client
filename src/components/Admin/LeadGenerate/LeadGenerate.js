@@ -30,7 +30,7 @@ const LeadGenerate = () => {
   };
 
   const generateInitial = () => {
-    fetch("http://192.168.10.11:5056/initialLead?initDate=" + initialDate)
+    fetch("http://192.168.10.12:5090/initialLead?initDate=" + initialDate)
       .then((res) => res.json())
       .then((data) => {
         setInitialLeads(
@@ -47,6 +47,7 @@ const LeadGenerate = () => {
   };
 
   let headers = [
+    { label: "id", key: "id" },
     { label: "diid", key: "diid" },
     { label: "data_date", key: "data_date" },
     { label: "r_name", key: "r_name" },
@@ -54,7 +55,7 @@ const LeadGenerate = () => {
   ];
 
   const updateInitialLeads = () => {
-    fetch("http://192.168.10.11:5056/updateInitialLead", {
+    fetch("http://192.168.10.12:5090/updateInitialLead", {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(initialLeads),
@@ -64,7 +65,7 @@ const LeadGenerate = () => {
   };
 
   const regenerateLeads = () => {
-    fetch("http://192.168.10.11:5056/regenerate?regenDate=" + regenDate)
+    fetch("http://192.168.10.12:5090/regenerateDemo")
       .then((res) => res.json())
       .then((data) => {
         setRegenerate(
@@ -81,7 +82,7 @@ const LeadGenerate = () => {
   };
 
   const regenerateUpdate = () => {
-    fetch("http://192.168.10.11:5056/regenerateUpdate", {
+    fetch("http://192.168.10.12:5090/regenerateUpdate", {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(regenerate),
@@ -187,6 +188,7 @@ const LeadGenerate = () => {
             </Card.Body>
           </Card>
         </div>
+        <button onClick={regenerateLeads}>Demo</button>
       </div>
     </div>
   );
