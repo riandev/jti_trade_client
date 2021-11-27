@@ -30,9 +30,10 @@ const LeadGenerate = () => {
   };
 
   const generateInitial = () => {
-    fetch("http://192.168.10.12:5090/initialLead?initDate=" + initialDate)
+    fetch("http://localhost:5090/initialLead?initDate=" + initialDate)
       .then((res) => res.json())
       .then((data) => {
+        console.log(data);
         setInitialLeads(
           data
             .map((x) => {
@@ -56,7 +57,7 @@ const LeadGenerate = () => {
   ];
 
   const updateInitialLeads = () => {
-    fetch("http://192.168.10.12:5090/updateInitialLead", {
+    fetch("http://localhost:5090/updateInitialLead", {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(initialLeads),
@@ -66,7 +67,7 @@ const LeadGenerate = () => {
   };
 
   const regenerateLeads = () => {
-    fetch("http://192.168.10.12:5090/regenerateDemo")
+    fetch("http://localhost:5090/regenerate?regenDate=" + regenDate)
       .then((res) => res.json())
       .then((data) => {
         setRegenerate(
@@ -83,7 +84,7 @@ const LeadGenerate = () => {
   };
 
   const regenerateUpdate = () => {
-    fetch("http://192.168.10.12:5090/regenerateUpdate", {
+    fetch("http://localhost:5090/regenerateUpdate", {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(regenerate),
@@ -130,7 +131,7 @@ const LeadGenerate = () => {
                   <CSVLink
                     headers={headers}
                     title="Export data to CSV"
-                    filename="JTI_One_2_One_InitialLead.csv"
+                    filename="JTI_Trade_InitialLead.csv"
                     data={initialLeads}
                   >
                     Download
@@ -178,7 +179,7 @@ const LeadGenerate = () => {
                   <CSVLink
                     headers={headers}
                     title="Export data to CSV"
-                    filename="JTI_One_2_One_regenerateLead.csv"
+                    filename="JTI_Trade_regenerateLead.csv"
                     data={regenerate}
                   >
                     Download
@@ -189,7 +190,6 @@ const LeadGenerate = () => {
             </Card.Body>
           </Card>
         </div>
-        <button onClick={regenerateLeads}>Demo</button>
       </div>
     </div>
   );
