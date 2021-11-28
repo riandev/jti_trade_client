@@ -22,7 +22,7 @@ const SurveyBody = () => {
     setSearchNumber(e.target.value);
   };
   const handleSearch = () => {
-    fetch(`http://192.168.10.12:5090/dMatched/${searchNumber}`)
+    fetch(`http://67.21.32.75:5090/dMatched/${searchNumber}`)
       .then((res) => res.json())
       .then((data) => setConsumer(data));
     setNotFound(true);
@@ -68,7 +68,7 @@ const SurveyBody = () => {
       callDate: new Date().toLocaleDateString(),
       callTime: new Date().toLocaleTimeString(),
     };
-    fetch(`http://192.168.10.12:5090/answers/${consumer?._id}`, {
+    fetch(`http://67.21.32.75:5090/answers/${consumer?._id}`, {
       method: "PATCH",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify(answer),
