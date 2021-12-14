@@ -228,7 +228,7 @@ const SurveyBody = () => {
         className="mt-2"
       >
         <h6>
-          ৬. সম্প্রীতি কোনো দোকানদার ভাই কি আপনাকে নেভি অপসন সিগারেট নিয়ে কোন
+          ৬. সম্প্রীতি কোনো দোকানদার ভাই কি আপনাকে রিয়েল সিগারেট নিয়ে কোন
           ব্র্যান্ড ম্যাসেজ দিয়েছে কিনা?
         </h6>
         <Form.Group onChange={q6value} as={Row}>
@@ -243,7 +243,7 @@ const SurveyBody = () => {
         style={{ display: q6 === "yes" ? "block" : "none" }}
         className="mt-2"
       >
-        <h6>৭. আপনি কি ভবিষ্যতে নেভি অপসন সিগারেট পান করবেন?</h6>
+        <h6>৭. আপনি কি ভবিষ্যতে রিয়েল সিগারেট পান করবেন?</h6>
         <Form.Group onChange={q7value} as={Row}>
           <Form.Control as="select" className="w-50 ml-3">
             <option>...</option>
@@ -252,12 +252,12 @@ const SurveyBody = () => {
           </Form.Control>
         </Form.Group>
       </div>
-      {/* <div
+      <div
         style={{ display: q7 === "yes" || q7 === "no" ? "block" : "none" }}
         className="mt-2"
       >
         <h6>
-          ৮. ক্যাম্পেইনের শুরুর সময় নেভি অপসন এর পক্ষ থেকে SR অথবা FSS কোন অনবোর্ডিং
+          ৮. ক্যাম্পেইনের শুরুর সময় রিয়েল এর পক্ষ থেকে SR অথবা FSS কোন অনবোর্ডিং
           আইটেম (টি-শার্ট) দিয়েছিল কিনা?
         </h6>
         <Form.Group onChange={q8value} as={Row}>
@@ -267,7 +267,7 @@ const SurveyBody = () => {
             <option value="no">না</option>
           </Form.Control>
         </Form.Group>
-      </div> */}
+      </div>
       {/* Final Question */}
       <div
         style={{
@@ -287,8 +287,8 @@ const SurveyBody = () => {
             q3 === "-18" ||
             q4 === "no" ||
             q6 === "no" ||
-            q7 === "yes" ||
-            q7 === "no"
+            q8 === "yes" ||
+            q8 === "no"
               ? "block"
               : "none",
         }}
@@ -296,7 +296,7 @@ const SurveyBody = () => {
       >
         <h5>ধন্যবাদ স্যার, আপনার মূল্যবান সময় দেয়ার জন্য।</h5>
         <h6 className="text-secondary mt-2">
-          নতুন দিনের প্রতিশ্রুতি ও জাপানিজ কোয়ালিটি নিশ্চয়তায় নেভি অপসন নিয়ে এলো
+          নতুন দিনের প্রতিশ্রুতি ও জাপানিজ কোয়ালিটি নিশ্চয়তায় রিয়েল নিয়ে এলো
           আকর্ষণীয় প্যাক সীমিত সময়ের জন্য
         </h6>
         <br />
