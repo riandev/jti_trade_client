@@ -22,7 +22,7 @@ const SurveyBody = () => {
     setSearchNumber(e.target.value);
   };
   const handleSearch = () => {
-    fetch(`http://67.21.32.75:5090/dMatched/${searchNumber}`)
+    fetch(`http://192.168.10.14:5090/dMatched/${searchNumber}`)
       .then((res) => res.json())
       .then((data) => setConsumer(data));
     setNotFound(true);
@@ -68,7 +68,7 @@ const SurveyBody = () => {
       callDate: new Date().toLocaleDateString(),
       callTime: new Date().toLocaleTimeString(),
     };
-    fetch(`http://67.21.32.75:5090/answers/${consumer?._id}`, {
+    fetch(`http://192.168.10.14:5090/answers/${consumer?._id}`, {
       method: "PATCH",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify(answer),
@@ -198,14 +198,14 @@ const SurveyBody = () => {
         <Form.Group onChange={q5value} as={Row}>
           <Form.Control as="select" className="w-50 ml-3">
             <option>...</option>
-            <option value="sheikh">শেখ</option>
-            <option value="navy">নেভি</option>
+            {/* <option value="sheikh">শেখ</option>
+            <option value="navy">নেভি</option> */}
             <option value="real">রিয়েল</option>
             <option value="derby">ডার্বি</option>
             <option value="pilot">পাইলট</option>
             <option value="hollywood">হলিউড</option>
-            <option value="royols">রয়েলস</option>
-            <option value="marise">মেরিস</option>
+            {/* <option value="royols">রয়েলস</option>
+            <option value="marise">মেরিস</option> */}
             <option value="others">অন্যান্য</option>
           </Form.Control>
         </Form.Group>
@@ -213,14 +213,10 @@ const SurveyBody = () => {
       <div
         style={{
           display:
-            q5 === "sheikh" ||
             q5 === "derby" ||
             q5 === "pilot" ||
             q5 === "hollywood" ||
-            q5 === "royols" ||
-            q5 === "marise" ||
             q5 === "others" ||
-            q5 === "navy" ||
             q5 === "real"
               ? "block"
               : "none",
@@ -252,7 +248,7 @@ const SurveyBody = () => {
           </Form.Control>
         </Form.Group>
       </div>
-      <div
+      {/* <div
         style={{ display: q7 === "yes" || q7 === "no" ? "block" : "none" }}
         className="mt-2"
       >
@@ -267,7 +263,7 @@ const SurveyBody = () => {
             <option value="no">না</option>
           </Form.Control>
         </Form.Group>
-      </div>
+      </div> */}
       {/* Final Question */}
       <div
         style={{
@@ -287,8 +283,8 @@ const SurveyBody = () => {
             q3 === "-18" ||
             q4 === "no" ||
             q6 === "no" ||
-            q8 === "yes" ||
-            q8 === "no"
+            q7 === "yes" ||
+            q7 === "no"
               ? "block"
               : "none",
         }}
